@@ -19,7 +19,7 @@ chat_id = "-1001915216283"
 
 @dp.message_handler()
 async def send(message: types.Message):
-    print(message.from_user)
+    # print(message.from_user)
 
     if (len(message.text) >= 4):
         if (message.text[0: 4] == "-ark"):
