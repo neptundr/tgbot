@@ -38,10 +38,10 @@ async def send(message: types.Message):
             stop=["You:"]
         )
         await message.reply(response['choices'][0]['text'])
-    elif (message.from_user.first_name == "Group"):
+    elif (message.from_user.first_name == "Group" or message.from_user.first_name == "Rara"):
         pass
     else:
-        if ('аркади' in message.text.lower() or len(message.text) > 30 or randint(0, 5) == 0):
+        if ('аркади' in message.text.lower() or len(message.text) > 30 or randint(0, 10) == 0):
             name = ""
 
             if (message.from_user.first_name):
