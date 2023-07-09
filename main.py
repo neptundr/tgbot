@@ -5,7 +5,7 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from random import randint
 
-token = '6162661283:AAE-TSDU8XIjqybwhuzkKvKe4AZC6Tu2o3A'
+token = '6162661283:AAE_njlw3JWzAK9QnONgDVZiu3GtnikkGA8'
 
 openai.api_key = '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'
 
