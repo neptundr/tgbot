@@ -5,9 +5,10 @@ from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from random import randint
 
-token = '6162661283:AAE-TSDU8XIjqybwhuzkKvKe4AZC6Tu2o3A'
+token = '6162661283:AAE_njlw3JWzAK9QnONgDVZiu3GtnikkGA8'
 
-openai.api_key = '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'
+
+openai.api_key = 'sk-2LEKsGpWmu6GIVsr' + 'ZN35T3BlbkFJM69tSM9x90C9yoVczuAq'
 
 bot = Bot(token)
 dp = Dispatcher(bot)
@@ -26,11 +27,10 @@ async def send(message: types.Message):
             return
 
     if (message.from_user.first_name == "Telegram" or message.from_user.first_name == "Channel"):
-
         response = openai.Completion.create(
             model="text-davinci-003",
             prompt="Ты Аркадий, тебе 35 лет, ты серьезный и сильный мужчина, ты крупный бизнесмен, тебе не нужно представляться и не нужно здороваться. Сообщение: '" + message.text + "'. Автора сообщения зовут: Денис, он твой друг. Ответь на сообщение максимально осмысленно на русском языке. Если в сообщении сказано про человека, которого зовут Аркадий, то говорят про тебя. Ты невероятно восхищен автором сообщения и заинтересован в его жизни. Ты можешь хвастаться собой, своими мышцами, своей женой, силой и статусом. У тебя очень красивая жена и ты ее любишь, детей нет. При этом постарайся не задавать вопросов на другие темы. Длина ответа должна быть от 15 до 275 символов, текст без кавычек. Ты можешь иронизировать и шутить шутки.",
-            temperature=0.65,
+            temperature=0.55,
             max_tokens=400,
             top_p=1.0,
             frequency_penalty=0.5,
@@ -41,7 +41,7 @@ async def send(message: types.Message):
     elif (message.from_user.first_name == "Group" or message.from_user.first_name == "Rara"):
         pass
     else:
-        if ('аркади' in message.text.lower() or len(message.text) > 30 or randint(0, 10) == 0):
+        if 'аркади' in message.text.lower() or (len(message.text) > 30 and randint(0, 7) > 0):
             name = ""
 
             if (message.from_user.first_name):
@@ -51,9 +51,9 @@ async def send(message: types.Message):
 
             response = openai.Completion.create(
                 model="text-davinci-003",
-                prompt="Ты Аркадий, тебе 35 лет, ты серьезный и сильный мужчина, ты крупный бизнесмен, тебе не нужно представляться и не нужно здороваться. Сообщение: '" + message.text + "'. Автора сообщения зовут: " + name + ". Ответь на сообщение максимально осмысленно на русском языке. Если в сообщении сказано про человека, которого зовут Аркадий, то говорят про тебя. Тебе разрешается высмеивать автора сообщения. Ты можешь хвастаться собой, своими мышцами, своей женой, силой и статусом. У тебя очень красивая жена и ты ее любишь, детей нет. При этом постарайся не задавать вопросов на другие темы. Длина ответа должна быть от 15 до 225 символов, текст без кавычек. Ты можешь иронизировать и шутить шутки.",
-                temperature=0.65,
-                max_tokens=350,
+                prompt="Ты Аркадий, тебе 35 лет, ты серьезный и сильный мужчина, ты крупный бизнесмен, тебе не нужно представляться и не нужно здороваться. Сообщение: '" + message.text + "'. Автора сообщения зовут: " + name + ". Ответь на сообщение максимально осмысленно на русском языке. Если в сообщении сказано про человека, которого зовут Аркадий, то говорят про тебя. Тебе разрешается высмеивать автора сообщения. Ты можешь хвастаться собой, своими мышцами, своей женой, силой и статусом. У тебя очень красивая жена и ты ее любишь, детей нет. При этом постарайся не задавать вопросов на другие темы. Длина ответа должна быть от 15 до 175 символов, текст без кавычек. Ты можешь иронизировать и шутить шутки.",
+                temperature=0.55,
+                max_tokens=300,
                 top_p=1.0,
                 frequency_penalty=0.5,
                 presence_penalty=0.0,
